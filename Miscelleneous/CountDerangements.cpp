@@ -22,7 +22,7 @@ ll findDerangements(ll no)
     if we just placed 0 at ith position and any other element at 0th position so, now we have to solve it for (no-1) elements hence
     fun call for (no-1) and (no-2) is there
 */
-    return dp[no] = (n-1)*(findDerangements(no-1) + findDerangements(no-2));
+    return dp[no] = (no-1)*(findDerangements(no-1) + findDerangements(no-2));
 }
 
 int main()
