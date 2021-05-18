@@ -1,3 +1,6 @@
+// Similar Question 
+https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/dynamic-programming/optimal-strategy-for-a-game-official/ojquestion#
+
 #include<bits/stdc++.h>
 
 using namespace std;
