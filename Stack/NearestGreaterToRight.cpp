@@ -9,29 +9,32 @@ void NGR(ll arr[] , ll no)
     stack<ll>stk;
     ll indices[no];
     
-    // Traversing array from right bcoz we want elements of array in sequence in stack
-    // means just right element will on top of stack
+    // Traversing array from right bcoz we want elements of array in stack(in the same sequence as they are)
+    // means just right element of array will on top of stack
     for(ll i=no-1;i>=0;i--)
     {
         while(!stk.empty())
         {
             if(arr[stk.top()] <= arr[i]) 
             {
-                // Poping the element bcoz this never will be answer for remaining element
+                // Poping the element bcoz this never will be answer for remaining elements of array
                 stk.pop();
             }
             else
             {
-                // We found our ans
+                // We found our answer
                 indices[i] = stk.top();
                 break;
             }
         }
         
-        // chekcking stack is empty bcoz there will be case if no element at right is greater than current element
+        // chekcking stack is empty bcoz there will be case if no element at right is greater than current elements of array
+        
         if(stk.empty())
             indices[i] = -1;
-            
+          
+        
+       // Pushing currient element in the array for further computation
         stk.push(i);
     }
     for(ll i=0;i<no;i++)
