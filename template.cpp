@@ -1,3 +1,5 @@
+//Template 1
+
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -18,11 +20,20 @@ using namespace std;
 
 bool flg = false;
 
-const int dir4[4][2] = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+const int dir4[4][2] = {{0, 1}, {0, -1}, {1, 0}, { -1, 0}};
 
 const int dir8[8][2] = {{0, 1}, {0, -1}, {1, 0}, { -1, 0}, {1, 1}, {1, -1}, { -1, 1}, { -1, -1}};
 
 /*--------------------------------------------------------code starts here--------------------------------------------------------------*/
+
+
+void file()
+{
+#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+#endif
+}
 
 
 void pavan_coder()
@@ -34,10 +45,34 @@ void pavan_coder()
 int main()
 {
 	fast_io;
+	file();
 	ll tc = 1;
-	cin>>tc;
-	while(tc--)
+	cin >> tc;
+	while (tc--)
 	{
 		pavan_coder();
 	}
+}
+
+
+
+//Template 2
+
+#include<bits/stdc++.h>
+#define ll long long
+
+using namespace std;
+
+void file()
+{
+#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+#endif
+}
+
+
+int main()
+{
+	file();
 }
