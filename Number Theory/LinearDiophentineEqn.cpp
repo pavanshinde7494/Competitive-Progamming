@@ -16,13 +16,12 @@ ax + by = c  Here a,b,c given we have to find integral values of x and y
 
 			a = b = 0
 			  /\
-	         /	\
+	                 /  \
 			/    \
-		   /      \
-
-		c = 0     c!=0
-		infinite   No Solution
-		solutions
+		       /      \
+		   c = 0        c!=0
+		  infinite      No Solution
+		  solutions
 
 To solve above problem for generel case Extended Euclidian algo.
 
@@ -69,7 +68,7 @@ min value of (xgen + ygen) = min(xgen +ygen )
       /        \
      b>a       a<b
   k = min     k = max
-   possible		possible
+  possible    possible
 
    b = a => independent value of k
 */
