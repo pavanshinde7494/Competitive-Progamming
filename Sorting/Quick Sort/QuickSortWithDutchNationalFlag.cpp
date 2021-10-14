@@ -32,7 +32,9 @@ void file()
     freopen("output.txt", "w", stdout);
 #endif
 }
-
+/*
+This algo. is improved version of quick sort. This approch works good when array contain repeated keys. But , looks more costly for array containing unique keys
+*/ 
 void quickSort(ll arr[], ll left , ll right) {
     if (left >= right - 1)return;
     ll low = left , high = right - 1 , curPtr = left;
