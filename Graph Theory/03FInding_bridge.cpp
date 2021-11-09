@@ -29,7 +29,7 @@ void dfs(ll node , ll parent)
             // checking for forward edge
             dfs(adjList[node][i],node);
 	    low[node] = min(low[node],low[adjList[node][i]]);
-            if( low[adjList[node][i]] >= inTime[node] )
+            if( low[adjList[node][i]] > inTime[node] )
                 cout<<"Edge "<<node<<"->"<<adjList[node][i]<<" is a bridge\n";
         }
         else
