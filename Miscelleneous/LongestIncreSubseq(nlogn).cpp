@@ -32,7 +32,7 @@ int LISnlogn(int arr[], int no) {
 
         // if both above cases fails
         // means curr ele should be placed between 0 and len
-        // curr ele should be replaced by is ceil
+        // curr ele should be replaced by its ceil
         else {
             int left = 0 , right = len , res = -1;
             while (left <=  right) {
