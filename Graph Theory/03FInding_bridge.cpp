@@ -1,62 +1,51 @@
-#include<bits/stdc++.h>
 
-#define ll long long
-#define f first
-#define s second
-#define pb push_back
-#define mk make_pair
+vector<int>adjList[1001];
+int visited[1001];
+int low[1001];
+int tin[1001];
+int timer = 1;
 
-using namespace std;
-
-vector<ll>adjList[100001];
-ll visited[100001];
-ll low[100001];
-ll inTime[100001];
-ll timer = 0;
-
-void dfs(ll node , ll parent)
-{
+void findBridge(int node, int parent) {
     visited[node] = 1;
-    low[node] = timer;
-    inTime[node] = timer;
-    timer++;
-    for(ll i=0;i<adjList[node].size();i++)
-    {
-        if(adjList[node][i] == parent)
-            continue;
-        if(!visited[adjList[node][i]])
-        {
-            // checking for forward edge
-            dfs(adjList[node][i],node);
-	    low[node] = min(low[node],low[adjList[node][i]]);
-            if( low[adjList[node][i]] > inTime[node] )
-                cout<<"Edge "<<node<<"->"<<adjList[node][i]<<" is a bridge\n";
-        }
-        else
-        {
-            // checking for back edge
-            low[node]  = min(low[node] , inTime[adjList[node][i]]);
+    low[node] = tin[node] = timer++;
+
+    for (int child : adjList[node]) {
+        if (child == parent)continue;
+        if (visited[child])
+            low[node] = min(low[node] , tin[child]);
+        else {
+            findBridge(child, node);
+            low[node] = min(low[node], low[child]);
+            if (tin[node] < low[child])
+                cout << "bridge : " << node << " " << child << "\n";
         }
     }
 }
 
 
-int main()
-{
-   memset(visited,0,sizeof(visited));
-    memset(low,0,sizeof(low));
-    memset(inTime,0,sizeof(inTime));
 
-   ll nodes,edges;
-   cin>>nodes>>edges;
+int  main() {
+    fast_io;
+    file();
 
-   for(ll i=0;i<edges;i++)
-   {
-       ll u,v;
-       cin>>u>>v;
-       adjList[u].pb(v);
-       adjList[v].pb(u);
-   }
+    memset(visited, 0, sizeof(visited));
+    memset(low, 0, sizeof(low));
+    memset(tin, 0, sizeof(tin));
 
-   dfs(1,0);
+    int nodes, edges;
+    cin >> nodes >> edges;
+
+    for (int i = 0; i < edges; i++) {
+        int u, v;
+        cin >> u >> v;
+        adjList[u].push_back(v);
+        adjList[v].push_back(u);
+    }
+
+    for (int i = 1; i <= nodes; i++) {
+        if (!visited[i]) {
+            findBridge(i, -1);
+        }
+    }
+    return 0;
 }
